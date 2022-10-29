@@ -19,7 +19,8 @@ export class AboutComponent implements OnInit {
     this.infoPaginaService.regresaEquipo()
     .subscribe((resp:equipo[])=>{
       //console.log(resp);
-      //this.lstEquipo=resp:
+      this.lstEquipo=resp;
+      console.log(this.lstEquipo[0]);
       
     });
   }

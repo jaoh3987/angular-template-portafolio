@@ -30,10 +30,7 @@ export class InfoPaginaService {
     return this.http.get<equipo[]>('https://angular-firestore-grafic-98de2-default-rtdb.firebaseio.com/equipo.json').pipe(
       tap((resp:equipo[])=>{
         this.cargada=true;
-
-        console.log(resp);
-        
-
+        //console.log(resp);
       })
     );
   }
