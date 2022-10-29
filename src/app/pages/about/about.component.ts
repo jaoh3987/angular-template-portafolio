@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { equipo } from 'src/app/interfaces/equipo.interface';
+import { InfoPaginaService } from 'src/app/services/info-pagina.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+
+  lstEquipo:equipo[]=[];
+
+  constructor(public infoPaginaService:InfoPaginaService) { }
 
   ngOnInit(): void {
+    
+    this.infoPaginaService.regresaEquipo()
+    .subscribe((resp:equipo[])=>{
+      //console.log(resp);
+      //this.lstEquipo=resp:
+      
+    });
   }
 
 }

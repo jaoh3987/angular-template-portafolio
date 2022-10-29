@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoPagina } from 'src/app/interfaces/info-pagina.interface';
 import { InfoPaginaService } from '../../services/info-pagina.service';
+import { equipo } from '../../interfaces/equipo.interface';
 
 @Component({
   selector: 'app-header',
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
         this.info=resp;
         console.log(this.info.titulo);        
       })
+
 
   }
 
