@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
-import { Producto } from '../../interfaces/productos.interface';
+import { Producto, ProductoDetalle } from '../../interfaces/productos.interface';
 
 @Component({
   selector: 'app-item',
@@ -9,6 +9,9 @@ import { Producto } from '../../interfaces/productos.interface';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
+
+  producto:ProductoDetalle | undefined;
+  id:string | undefined;
 
   constructor(private route:ActivatedRoute,
               private productosService:ProductosService) { 
@@ -19,9 +22,11 @@ export class ItemComponent implements OnInit {
     this.route.params
     .subscribe( params=>{
       //console.log(params['id']);
+        this.id=params['id'];
         this.productosService.getProducto(params['id'])
             .subscribe(producto=>{
-              console.log(producto);
+              this.producto=producto;
+              //console.log(producto);
             })
 
       }
