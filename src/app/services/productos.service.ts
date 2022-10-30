@@ -67,7 +67,7 @@ export class ProductosService {
       this.filtrarProducto(termino);
     }   
   }
-
+ 
 
   private filtrarProducto(termino:string)
   {
