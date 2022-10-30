@@ -1,4 +1,4 @@
-interface ProductoDetalle {
+export interface ProductoDetalle {
   categoria: string;
   desc1: string;
   desc2: string;
