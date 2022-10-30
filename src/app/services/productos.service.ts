@@ -11,12 +11,16 @@ export class ProductosService {
 
   cargada=false;
 
+  productos:ProductoGeneral[]=[];
+  productosFiltrado:ProductoGeneral[]=[]
+
   constructor(private http: HttpClient) { }
 
   cargarProductos(){
      
     return this.http.get<ProductoGeneral[]>('https://angular-firestore-grafic-98de2-default-rtdb.firebaseio.com/productos_idx.json').pipe(
       tap((resp:ProductoGeneral[])=>{
+        this.productos=resp;
         this.cargada=true;
       })
     );
@@ -30,6 +34,15 @@ export class ProductosService {
       })
     );
 
+  }
+
+  buscarProducto(termino:string){
+    this.productosFiltrado= this.productos.filter(producto=>{
+      return true;
+    })
+
+    console.log(this.productosFiltrado);
+    
   }
 
 
